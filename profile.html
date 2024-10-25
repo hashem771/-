@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي</title>
+    <link rel="stylesheet" href="profile.css"> <!-- ربط ملف CSS الخاص بك -->
+</head>
+<body>
+    <header>
+        <h1>الملف الشخصي</h1>
+    </header>
+
+    <section id="profileSection">
+        <div id="profileInfo">
+            <img id="profileImage" alt="الصورة الشخصية" src="default-avatar.png">
+            <h2 id="profileName">اسم المستخدم</h2>
+            <p id="followersCount">عدد المتابعين: 0</p> <!-- إضافة عنصر لعدد المتابعين -->
+            <button id="followBtn">متابعة</button>
+        </div>
+
+        <div id="userPosts">
+            <h3>منشورات المستخدم</h3>
+            <div id="postsContainer"></div>
+        </div>
+    </section>
+
+    <!-- تحميل ملف JS كـ module -->
+    <script type="module" src="profile.js"></script>
+</body>
+</html>

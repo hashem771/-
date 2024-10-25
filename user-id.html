@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدخال معرف المستخدم وتعديل الصورة الشخصية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        #profileImageUpload {
+            margin-top: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+        // تهيئة Firebase باستخدام بيانات المشروع
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNlNpZZn-tkIRpOZXeOJqgnagNk9hRyqI",
+            authDomain: "bing-8e48f.firebaseapp.com",
+            databaseURL: "https://bing-8e48f-default-rtdb.firebaseio.com",
+            projectId: "bing-8e48f",
+            storageBucket: "bing-8e48f.appspot.com",
+            messagingSenderId: "463368456917",
+            appId: "1:463368456917:android:41612df40b1a4aa6e1f05c"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const storage = getStorage(app);
+        const db = getDatabase(app);
+
+        // تحميل الصورة الشخصية
+        const uploadProfileImage = async (file, userId) => {
+            const fileRef = storageRef(storage, `profileImages/${userId}`);
+            await uploadBytes(fileRef, file);
+            return await getDownloadURL(fileRef);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const profilePicture = document.getElementById('profilePicture');
+            const profileImageInput = document.getElementById('profileImageInput');
+            const userIdInput = document.getElementById('userId');
+            const userNameInput = document.getElementById('userName');
+            const userIdForm = document.getElementById('userIdForm');
+
+            // تحميل الصورة الشخصية الافتراضية
+            profilePicture.src = 'https://via.placeholder.com/150'; // الصورة الافتراضية
+
+            // إضافة "@" تلقائيًا إلى المعرف
+            userIdInput.addEventListener('input', () => {
+                let inputValue = userIdInput.value.trim();
+                if (inputValue && !inputValue.startsWith('@')) {
+                    userIdInput.value = '@' + inputValue.replace(/^@+/, '');
+                } else if (inputValue.startsWith('@')) {
+                    userIdInput.value = inputValue.replace(/^@+/,'@'); // إزالة أي @ إضافي
+                }
+            });
+
+            // معالجة رفع الصورة الشخصية
+            profileImageInput.addEventListener('change', () => {
+                const file = profileImageInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        profilePicture.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            userIdForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // منع إعادة تحميل الصفحة
+
+                const userId = userIdInput.value;
+                const userName = userNameInput.value;
+                const file = profileImageInput.files[0];
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        let profileImageUrl = profilePicture.src;
+
+                        // رفع الصورة الجديدة إذا تم اختيارها
+                        if (file) {
+                            profileImageUrl = await uploadProfileImage(file, user.uid);
+                        }
+
+                        // تخزين المعرف واسم المستخدم والصورة الشخصية في قاعدة البيانات
+                        await set(ref(db, 'users/' + user.uid), {
+                            userId: userId,
+                            userName: userName,
+                            profileImage: profileImageUrl
+                        });
+
+                        alert('تم حفظ البيانات بنجاح!');
+                        window.location.href = 'index.html'; // توجيه إلى الصفحة الرئيسية
+                    } else {
+                        alert('خطأ: لم يتم العثور على المستخدم.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>تعديل الصورة الشخصية وإدخال معرف المستخدم</h2>
+    <!-- الصورة الشخصية -->
+    <img id="profilePicture" class="profile-picture" alt="الصورة الشخصية">
+    <input type="file" id="profileImageInput" accept="image/*">
+    
+    <!-- نموذج إدخال المعرف واسم المستخدم -->
+    <form id="userIdForm">
+        <label for="userName">اسم المستخدم:</label>
+        <input type="text" id="userName" required><br><br>
+        
+        <label for="userId">معرف المستخدم:</label>
+        <input type="text" id="userId" placeholder="@example" required><br><br>
+        
+        <button type="submit">حفظ</button>
+    </form>
+</body>
+</html>

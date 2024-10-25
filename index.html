@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة اجتماعية لمشاركة الصور</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="existing.css"> <!-- إضافة ملف CSS الجديد -->
+</head>
+<body>
+    <header>
+        <h1>منصة اجتماعية لمشاركة الصور</h1>
+        <input type="text" id="searchBar" placeholder="ابحث عن الصور">
+        <div id="profileSection">
+            <img id="profileImage" alt="الصورة الشخصية" src="default-avatar.png" width="50">
+            <button id="logoutBtn">تسجيل الخروج</button>
+        </div>
+        <button class="menu-btn" id="menuBtn">⋮</button> <!-- زر النقاط الثلاث -->
+    </header>
+    
+    <nav id="sideMenu" class="side-menu">
+        <div class="menu-content">
+            <button id="closeBtn" class="close-btn">×</button> <!-- زر X لإغلاق القائمة الجانبية -->
+            <img id="profileSideImage" alt="الصورة الشخصية" src="default-avatar.png" width="100">
+            <button id="sideLogoutBtn">تسجيل الخروج</button>
+            <button id="settingsBtn">الإعدادات</button>
+        </div>
+    </nav>
+
+    <button class="follow-button">متابعة الأشخاص</button>
+    <button class="add-button" id="addImageBtn">+</button>
+
+    <!-- نافذة رفع الصور -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <h2>رفع صورة</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <input type="text" id="imageTitle" placeholder="عنوان الصورة">
+            <progress id="uploadProgress" value="0" max="100"></progress>
+            <button id="uploadBtn">رفع</button>
+            <button id="closeModalBtn">إغلاق</button>
+        </div>
+    </div>
+
+    <div id="imageGallery"></div>
+    <div id="postsContainer"></div> <!-- حاوية المنشورات -->
+
+    <script type="module" src="app.js"></script>
+    <script type="module" src="existing.js"></script> <!-- إضافة ملف جافا سكربت الجديد -->
+</body>
+</html>

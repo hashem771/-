@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الصورة</title>
+    <link rel="stylesheet" href="post.css">
+    <script type="module" src="post.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>تفاصيل الصورة</h1>
+    </header>
+    
+    <main>
+        <div id="postContainer">
+    <div id="userInfoContainer" style="display: flex; align-items: center; margin-bottom: 20px;">
+        <img id="profileImage" alt="صورة الملف الشخصي" style="width: 50px; height: 50px; border-radius: 50%; margin-left: 10px;">
+        <span id="userName" style="margin-left: 10px;">مستخدم مجهول</span>
+    </div>
+    <h2 id="imageTitle">عنوان الصورة</h2>
+    <img id="image" src="" alt="صورة" style="width: 100%; max-width: 600px; height: auto;">
+    
+    <!-- حاوية الإعجابات والمشاهدات -->
+    <div id="likesViewsContainer">
+        <p>الإعجابات: <span id="likes">0</span></p>
+        <p>المشاهدات: <span id="views">0</span></p>
+    </div>
+    
+    <button id="downloadBtn">تحميل الصورة</button>
+</div>
+
+        <div id="commentsSection">
+            <h3>التعليقات</h3>
+            <div id="commentsContainer">
+                <p>جاري تحميل التعليقات...</p>
+            </div>
+            <input type="text" id="commentInput" placeholder="أضف تعليقك هنا...">
+            <button id="addCommentBtn">إضافة تعليق</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 معرض الصور</p>
+    </footer>
+</body>
+</html>

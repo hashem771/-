@@ -1,0 +1,109 @@
+/* الأساسيات لصفحة الملف الشخصي */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+#profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#profileInfo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4CAF50;
+}
+
+#profileName {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+#followersCount {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+#followBtn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#followBtn:hover {
+    background-color: #45a049;
+}
+
+#userPosts {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+#postsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.post {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.post img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    #profileImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    #profileName {
+        font-size: 1.2em;
+    }
+
+    #followBtn {
+        padding: 8px 16px;
+    }
+
+    #postsContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .post {
+        margin-bottom: 15px;
+    }
+}
+

@@ -1,0 +1,224 @@
+/* الأساسيات العامة */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    direction: rtl;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+#searchBar {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#profileSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#profileImage {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#logoutBtn {
+    background-color: #ff4757;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background-color: #e84118;
+}
+
+.follow-button, .add-button {
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.follow-button {
+    right: 80px;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+/* نافذة رفع الصور */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+#imageUpload, #imageTitle {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#uploadProgress {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#uploadBtn, #closeModalBtn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#uploadBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#uploadBtn:hover {
+    background-color: #0056b3;
+}
+
+#closeModalBtn {
+    background-color: #6c757d;
+    color: white;
+    margin-top: 10px;
+}
+
+#closeModalBtn:hover {
+    background-color: #5a6268;
+}
+
+/* حاوية الصور */
+/* تنسيق الصور في المعرض */
+.gallery-image {
+    max-width: 100%; /* يجعل عرض الصورة بحد أقصى عرض الصفحة أو العنصر الذي يحتويها */
+    height: auto; /* يحافظ على نسبة الأبعاد الأصلية للصورة */
+    display: block; /* لتجنب التصاق الصور بالعناصر الأخرى */
+    margin: 10px auto; /* لضبط تباعد مناسب حول الصور */
+}
+
+.image-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.image-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username, .user-id {
+    font-size: 14px;
+    margin: 0;
+}
+
+.username {
+    font-weight: bold;
+}
+
+./* حاوية التفاعلات */
+.post-footer {
+    margin-top: 10px;
+}
+
+.interaction {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.interaction div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* تنسيق أيقونات الإعجاب والمشاهدات والتعليقات */
+.like-icon, .view-icon, .comment-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.like-count, .view-count, .comment-count {
+    font-size: 14px;
+    margin: 0;
+}

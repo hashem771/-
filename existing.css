@@ -1,0 +1,65 @@
+/* زر النقاط الثلاث */
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+/* القائمة الجانبية */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.menu-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-content img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.menu-content button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #444;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-content button:hover {
+    background-color: #555;
+}
+
+/* زر X لإغلاق القائمة الجانبية */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: Left;
+    right: 10px;
+    top: 10px;
+}

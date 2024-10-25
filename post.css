@@ -1,0 +1,67 @@
+/* إعدادات أساسية للخطوط */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* تنسيق العنوان */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* تنسيق الصورة */
+#image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيق المعلومات */
+p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* تنسيق حاوية التعليقات */
+#commentsContainer {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق حقل إدخال التعليق وزر الإضافة */
+#commentInput {
+    width: calc(100% - 110px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#addCommentBtn {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addCommentBtn:hover {
+    background-color: #4cae4c;
+}
+
+/* تنسيق التعليقات */
+#commentsContainer p {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
